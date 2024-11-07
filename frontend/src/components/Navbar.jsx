@@ -9,7 +9,7 @@ const Navbar = () => {
     const { setShowSearch, getCardCount } = useContext(ShopContext)
 
   return (
-    <div className="flex items-center justify-between py-5 font-medium">
+    <nav className="flex items-center justify-between py-5 font-medium">
         <Link to='/'><img src={assets.logo} className="w-36" alt="logo" /></Link>
         <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
             <NavLink to='/' className="flex flex-col items-center gap-1">
@@ -60,7 +60,7 @@ const Navbar = () => {
                 <NavLink to='/contact' className='py-2 pl-6 border' onClick={() => setVisible(false)}>CONTACT</NavLink>
             </div>
         </div>
-    </div>
+    </nav>
   )
 }
 
