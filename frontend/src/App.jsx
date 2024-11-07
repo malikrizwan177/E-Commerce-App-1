@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import SearchBar from "./components/SearchBar";
 import Footer from "./components/Footer";
 const Home = lazy(() => import("./pages/Home"));
 const Collection = lazy(() => import("./pages/Collection"));
@@ -16,6 +17,7 @@ const App = () => {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
       <Navbar />
+      <SearchBar/>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
