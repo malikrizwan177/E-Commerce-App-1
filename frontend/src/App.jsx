@@ -12,10 +12,13 @@ const Order = lazy(() => import("./pages/Order"));
 const PlaceOrder = lazy(() => import("./pages/PlaceOrder"));
 const Product = lazy(() => import("./pages/Product"));
 const Contact = lazy(() => import("./pages/Contact"))
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+      <ToastContainer/>
       <Navbar />
       <SearchBar/>
       <Suspense fallback={<div>Loading...</div>}>
