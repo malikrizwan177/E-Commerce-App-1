@@ -1,11 +1,55 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ShopContext } from "../context/ShopContext";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [currentState, setCurrentState] = useState("Login");
+  const { token, setToken, navigate, backendURL } = useContext(ShopContext)
+
+  const [name, setName] = useState('')
+  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('')
 
   const onSubmitHandler = async (e) => {
     e.preventDefault()
+    try {
+      if (currentState === "Sign up") {
+        const response = await axios.post(backendURL + "/api/user/register", {name, email, password})
+        if (response.data.success) {
+          setToken(response.data.token)
+          localStorage.setItem('token', response.data.token)
+          toast.success("Sign up successful")
+        } else {
+          toast.error(response.data.message)
+        }
+          
+      } else {
+        const response = await axios.post(backendURL + "/api/user/login", {email, password})
+        if (response.data.success) {
+          setToken(response.data.token)
+          localStorage.setItem('token', response.data.token)
+          toast.success("Login successful")
+        } else {
+          toast.error(response.data.message)
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message)
+    }
   }
+
+  useEffect(() => {
+    if (token) {
+      navigate(`/`)
+    }
+  
+    return () => {
+      null
+    }
+  }, [token])
+  
 
   return (
     <form onSubmit={onSubmitHandler} className="flex flex-col items-center w-[90%] sm:max-w-96 m-auto mt-14 gap-4 text-gray-800">
@@ -17,6 +61,8 @@ const Login = () => {
         ""
       ) : (
         <input
+          value={name}
+          onChange={e => setName(e.target.value)}
           type="text"
           name="name"
           id="name"
@@ -26,6 +72,8 @@ const Login = () => {
         />
       )}
       <input
+        value={email}
+        onChange={e => setEmail(e.target.value)}
         type="email"
         name="email"
         id="email"
@@ -34,6 +82,8 @@ const Login = () => {
         required
       />
       <input
+        value={password}
+        onChange={e => setPassword(e.target.value)}
         type="password"
         name="password"
         id="password"
