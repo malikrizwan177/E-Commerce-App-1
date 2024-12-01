@@ -12,9 +12,9 @@ const LatestCollection = () => {
       setLatestProduct(products.slice(0,10))
     
       return () => {
-        undefined || null
+        null
       }
-    }, [])
+    }, [products])
     
 
   return (
