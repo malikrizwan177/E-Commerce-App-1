@@ -63,6 +63,24 @@ const PlaceOrder = () => {
             toast.error(response.data.message)
           }
           break;
+
+        case 'stripe':
+          const response_stripe = await axios.post(backendURL + '/api/order/stripe', orderData, {headers: {token}})
+          if (response_stripe.data.success) {
+            const { session_url } = response_stripe.data
+            window.location.replace(session_url)
+          } else {
+            toast.error(response_stripe.data.message)
+          }
+
+        case 'razorpay':
+          const response_razorpay = await axios.post(backendURL + '/api/order/razorpay', orderData, {headers: {token}})
+          if (response_razorpay.data.success) {
+            //Open razorpay payment window
+            toast.success(response_razorpay.data.message)
+          } else {
+            toast.error(response_razorpay.data.message)
+          }
       
         default:
           break;
