@@ -9,7 +9,7 @@ const Contact = () => {
         <Title text1={'CONTACT'} text2={'US'}/>
       </div>
       <div className="my-10 flex flex-col justify-center md:flex-row gap-10 mb-28">
-        <img src={assets.contact_img} alt="contact_img" className="w-full md:max-w-[480px]"/>
+        <img loading="lazy" src={assets.contact_img} alt="contact_img" className="w-full md:max-w-[480px]"/>
         <div className="flex flex-col justify-center items-start gap-6">
           <p className="font-semibold">Our Store</p>
           <p className="text-gray-500">1234 Abcd Station <br />Suite 567, efgh, XYZ</p>

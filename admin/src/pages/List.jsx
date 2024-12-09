@@ -62,7 +62,7 @@ const List = ({ token }) => {
         {/* Product List */}
         {list.map((item, index) => (
           <div key={index} className="grid grid-cols-[1fr_3fr_1fr] md:grid-cols-[1fr_3fr_1fr_1fr_1fr] items-center gap-2 py-1 border text-sm">
-            <img className="w-12" src={item.image[0]} alt="image" />
+            <img loading="lazy" className="w-12" src={item.image[0]} alt="image" />
             <p>{item.name}</p>
             <p>{item.category}</p>
             <p>{currency}{item.price}</p>

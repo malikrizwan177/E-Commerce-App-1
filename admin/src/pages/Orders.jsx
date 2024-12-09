@@ -60,7 +60,7 @@ const Orders = ({ token }) => {
         <div>
           {orders.map((order, index) => (
             <div key={index} className="grid grid-cols-1 sm:grid-cols-[0.5fr_2fr_1fr] lg:grid-cols-[0.5fr_2fr_1fr_1fr_1fr] gap-3 items-start border-2 border-gray-200 p-5 md:p-8 my-3 md:my-4 text-xs sm:text-xs text-gray-700">
-              <img className="w-12" src={assets.parcel_icon} alt="parcel_icon" />
+              <img loading="lazy" className="w-12" src={assets.parcel_icon} alt="parcel_icon" />
               <div>
                 <div>
                   {order.items.map((item, index) => {

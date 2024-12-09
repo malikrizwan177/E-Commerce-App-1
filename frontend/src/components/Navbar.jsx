@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <nav className="flex items-center justify-between py-5 font-medium">
       <Link to="/">
-        <img src={assets.logo} className="w-36" alt="logo" />
+        <img loading="lazy" src={assets.logo} className="w-36" alt="logo" />
       </Link>
       <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
         <NavLink to="/" className="flex flex-col items-center gap-1">
@@ -48,6 +48,7 @@ const Navbar = () => {
       </ul>
       <div className="flex items-center gap-6">
         <img
+          loading="lazy"
           onClick={() => setShowSearch(true)}
           src={assets.search_icon}
           alt="search_icon"
@@ -55,6 +56,7 @@ const Navbar = () => {
         />
         <div className="group relative">
           <img
+            loading="lazy"
             onClick={() => (token ? null : navigate(`/login`))}
             src={assets.profile_icon}
             alt="profile_icon"
@@ -74,12 +76,13 @@ const Navbar = () => {
           )}
         </div>
         <Link to="/cart" className="relative">
-          <img src={assets.cart_icon} alt="cart_icon" className="w-5 min-w-5" />
+          <img loading="lazy" src={assets.cart_icon} alt="cart_icon" className="w-5 min-w-5" />
           <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
             {getCardCount()}
           </p>
         </Link>
         <img
+          loading="lazy"
           onClick={() => setVisible(true)}
           src={assets.menu_icon}
           alt="menu_icon"
@@ -98,6 +101,7 @@ const Navbar = () => {
             className="flex items-center gap-4 p-3 cursor-pointer"
           >
             <img
+              loading="lazy"
               src={assets.dropdown_icon}
               alt="drowpdown_icon"
               className="h-4 rotate-180"

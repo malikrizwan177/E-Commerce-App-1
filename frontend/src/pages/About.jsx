@@ -9,7 +9,7 @@ const About = () => {
         <Title text1={'ABOUT'} text2={'US'}/>
       </div>
       <div className="my-10 flex flex-col md:flex-row gap-16">
-        <img src={assets.about_img} alt="about_img" className="w-full md:max-w-[450px]"/>
+        <img loading="lazy" src={assets.about_img} alt="about_img" className="w-full md:max-w-[450px]"/>
         <div className="flex flex-col justify-center gap-6 md:w-2/4 text-gray-600">
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt sapiente necessitatibus ratione tempora atque modi reiciendis, dignissimos esse illum sit officia repellendus soluta, ipsam placeat blanditiis molestias laudantium provident tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque natus, accusantium?</p>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae ducimus necessitatibus aperiam soluta rerum dolorem doloribus hic maiores impedit odit nostrum eos voluptas ea incidunt veniam, earum quis iusto perferendis. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt in velit facere ipsam minima molestias doloribus! Similique veritatis sunt expedita maiores!</p>

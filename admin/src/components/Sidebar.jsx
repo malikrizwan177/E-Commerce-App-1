@@ -9,21 +9,21 @@ const Sidebar = () => {
           to={`/add`}
           className={`flex items-center gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l`}
         >
-          <img src={assets.add_icon} alt="add_icon" className="w-5 h-5" />
+          <img loading="lazy" src={assets.add_icon} alt="add_icon" className="w-5 h-5" />
           <p className="hidden md:block">Add Items</p>
         </NavLink>
         <NavLink
           to={`/list`}
           className={`flex items-center gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l`}
         >
-          <img src={assets.order_icon} alt="order_icon" className="w-5 h-5" />
+          <img loading="lazy" src={assets.order_icon} alt="order_icon" className="w-5 h-5" />
           <p className="hidden md:block">List Items</p>
         </NavLink>
         <NavLink
           to={`/orders`}
           className={`flex items-center gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l`}
         >
-          <img src={assets.order_icon} alt="order_icon" className="w-5 h-5" />
+          <img loading="lazy" src={assets.order_icon} alt="order_icon" className="w-5 h-5" />
           <p className="hidden md:block">Orders</p> 
         </NavLink>
       </div>
