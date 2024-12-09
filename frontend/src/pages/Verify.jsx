@@ -45,7 +45,7 @@ const Verify = () => {
     
 
   return (
-    <div>Verify</div>
+    <div>Verify Page</div>
   )
 }
 
