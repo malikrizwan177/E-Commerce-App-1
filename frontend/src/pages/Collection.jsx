@@ -24,6 +24,8 @@ const Collection = () => {
 
   const applyFilter = () => {
     let productsCopy = products.slice()
+    console.log(productsCopy);
+    
 
     if (showSearch && search) {
       productsCopy = productsCopy.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
@@ -104,13 +106,13 @@ const Collection = () => {
           <p className="mb-3 text-sm font-medium">TYPE</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
             <p className="flex gap-2">
-              <input type="checkbox" name="checkbox" id="checkbox" className="w-3" value={'Topwear'} onChange={toggleSubCategory}/>Topwear
+              <input type="checkbox" name="checkbox" id="checkbox" className="w-3" value={'TopWear'} onChange={toggleSubCategory}/>TopWear
             </p>
             <p className="flex gap-2">
-              <input type="checkbox" name="checkbox" id="checkbox" className="w-3" value={'Bottomwear'} onChange={toggleSubCategory}/>Bottomwear
+              <input type="checkbox" name="checkbox" id="checkbox" className="w-3" value={'BottomWear'} onChange={toggleSubCategory}/>BottomWear
             </p>
             <p className="flex gap-2">
-              <input type="checkbox" name="checkbox" id="checkbox" className="w-3" value={'Winterwear'} onChange={toggleSubCategory}/>Winterwear
+              <input type="checkbox" name="checkbox" id="checkbox" className="w-3" value={'WinterWear'} onChange={toggleSubCategory}/>WinterWear
             </p>
           </div>
         </div>

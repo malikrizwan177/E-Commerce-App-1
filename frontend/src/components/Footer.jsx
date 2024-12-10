@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { assets } from "../assets/frontend_assets/assets";
 
 const Footer = () => {
@@ -14,10 +15,10 @@ const Footer = () => {
         <div>
           <p className="text-xl font-medium mb-5">COMPANY</p>
           <ul className="flex flex-col gap-1 text-gray-600">
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Delivery</li>
-            <li>Privacy Policy</li>
+            <NavLink to={`/`}><li className="hover:text-gray-950 cursor-pointer">Home</li></NavLink>
+            <NavLink to={`about`}><li className="hover:text-gray-950 cursor-pointer">About Us</li></NavLink>
+            <NavLink to={`/orders`}><li className="hover:text-gray-950 cursor-pointer">Delivery</li></NavLink>
+            <NavLink to={`/`}><li className="hover:text-gray-950 cursor-pointer">Privacy Policy</li></NavLink>
           </ul>
         </div>
         <div>
@@ -31,7 +32,7 @@ const Footer = () => {
       <div>
         <hr />
         <p className="py-5 text-center text-sm">
-          Copyright 2024 @ forever.com - All Rights Reserved
+          Copyright 2024 @ Muhammad Rizwan Malik - All Rights Reserved
         </p>
       </div>
     </footer>
