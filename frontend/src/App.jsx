@@ -15,6 +15,7 @@ const Contact = lazy(() => import("./pages/Contact"))
 const Verify = lazy(() => import("./pages/Verify"))
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { assets } from "./assets/frontend_assets/assets";
 
 const App = () => {
   return (
@@ -22,7 +23,7 @@ const App = () => {
       <ToastContainer/>
       <Navbar />
       <SearchBar/>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div className="w-full flex justify-center items-center h-lvh"><img src={assets.loading_gif} alt="loader" className="w-16 h-16"/></div>}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/collection" element={<Collection />} />

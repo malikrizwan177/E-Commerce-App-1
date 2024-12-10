@@ -18,9 +18,11 @@ const Add = ({ token }) => {
   const [subCategory, setSubCategory] = useState("TopWear")
   const [bestSeller, setBestSeller] = useState(false)
   const [sizes, setSizes] = useState([])
+  const [addProductLoader, setAddProductLoader] = useState(false)
 
   const onSubmitHandler = async (e) => {
     e.preventDefault()
+    setAddProductLoader(true)
     try {
       const formData = new FormData()
       formData.append("name", name)
@@ -39,6 +41,7 @@ const Add = ({ token }) => {
       const response = await axios.post(backendUrl + "/api/product/add", formData, {headers: {token}})
 
       if (response.data.success) {
+        setAddProductLoader(false)
         toast.success(response.data.message)
         setName("")
         setDescription("")
@@ -48,12 +51,15 @@ const Add = ({ token }) => {
         setImage4(false)
         setPrice("")
         setBestSeller(false)
+        setSizes([])
       } else {
+        setAddProductLoader(false)
         toast.error(response.data.message)
       }
       
 
     } catch (error) {
+      setAddProductLoader(false)
       toast.error(error)
       console.log(error);
       
@@ -137,7 +143,11 @@ const Add = ({ token }) => {
         <input onChange={() => setBestSeller(!bestSeller)} checked={bestSeller} type="checkbox" name="bestseller" id="bestseller" />
         <label htmlFor="bestseller" className="cursor-pointer">Add to bestseller</label>
       </div>
-      <button type="submit" className="w-28 py-3 mt-4 bg-black text-white">ADD</button>
+      {addProductLoader ? (
+        <img src={assets.loading_gif} alt="loader" className="w-10 h-10 mt-4 ml-5"/>
+      ) : (
+        <button type="submit" className="w-28 py-3 mt-4 bg-black text-white">ADD</button>
+      )}
     </form>
   )
 }

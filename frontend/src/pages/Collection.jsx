@@ -12,6 +12,7 @@ const Collection = () => {
   const [category, setCategory] = useState([])
   const [subCategory, setSubCategory] = useState([])
   const [sortType, setSortType] = useState('relevant')
+  const [collectionLoader, setCollectionLoader] = useState(true)
 
   const toggleCategory = (e) => {
     category.includes(e.target.value) ? setCategory(prev => prev.filter(item => item !== e.target.value)) : setCategory(prev => [...prev, e.target.value])
@@ -56,6 +57,9 @@ const Collection = () => {
   }
 
   useEffect(() => {
+    if (products.length > 0) {
+      setCollectionLoader(false)
+    }
     applyFilter()
   
     return () => {
@@ -123,11 +127,15 @@ const Collection = () => {
           </select>
         </div>
         {/* Map Products */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
+        {collectionLoader ? (
+          <img src={assets.loading_gif} alt="loader" className="w-12 h-12 mx-auto"/>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
           {filterProducts.map((item,index) => (
             <ProductItem key={index} id={item._id} name={item.name} image={item.image} price={item.price}/>
           ))}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   )
