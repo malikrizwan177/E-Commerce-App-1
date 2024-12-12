@@ -19,7 +19,8 @@ import { assets } from "./assets/frontend_assets/assets";
 
 const App = () => {
   return (
-    <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+    <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] flex flex-col justify-between h-lvh">
+      <div className="h-auto">
       <ToastContainer/>
       <Navbar />
       <SearchBar/>
@@ -37,6 +38,7 @@ const App = () => {
           <Route path="/verify" element={<Verify />} />
         </Routes>
       </Suspense>
+      </div>
       <Footer/>
     </div>
   );
